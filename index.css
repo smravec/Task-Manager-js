@@ -1,0 +1,178 @@
+/*  
+    How to write css in this document
+        -first goes anything like flex box or grid (and stuff related like justify content etc ..)
+        -second comes width and height attributes
+        -third comes margin and padding attributes and also border attributes 
+        -fourth comes background color and colors in general
+        -fifth comes font size , font family , font weight
+        -sixth comes transition and animation properties
+    -after every section should come one blank line      
+*/
+
+:root{
+    --default-font:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    --background-back:rgb(26, 17, 17);
+    --background-front:#38363d ;
+
+}
+
+body{
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--background-back);
+    color: white;
+}
+
+/* Upper todo panel */
+
+#upper_pannel{
+    display: flex;
+    justify-content: center;
+
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+   
+}
+
+#main_form{
+    display: flex;
+    justify-content: space-between;
+
+    min-width: fit-content;
+    width: 90vw;
+    
+    background-color: var(--background-front);
+
+    border: solid 1px black;
+    border-radius: 10px;
+}
+
+#input{
+    min-width: 35vw;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+
+    color: rgb(20, 18, 18);
+
+    font-size: large;
+
+}
+
+#submit_button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 30px;
+    padding-right: 55px;
+    padding-left: 55px;
+
+    border:none;
+    border-radius: 5px;
+
+    background-color: rgb(104, 15, 187);
+    color:white;
+
+    font-family: var(--default-font);
+    font-size: medium;
+    font-weight: bold;
+    
+
+    transition: all 100ms;
+
+}
+
+#submit_button:hover, #submit_button:active{
+    
+    background-color: rgb(78, 10, 143);
+
+}
+
+/* ---------------------------- */
+
+
+
+
+/* Tasks - content */
+
+#content{
+    display: flex;
+    justify-content: center;
+
+}
+
+#todo{
+    display: flex;  
+    flex-direction: column;
+
+    width: fit-content;
+    
+}
+
+/* ---------------------------- */
+
+
+
+/* Individual Task */
+
+#task{
+    display: flex;
+
+    margin-bottom: 2vh;
+
+    border: solid 1px black;
+    border-radius: 7px;
+
+    background-color: var(--background-front);
+
+    transition: all 10s;
+
+}
+
+/* Task Content */
+
+#task_value{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 8px;
+
+    border: none;
+
+    background-color: var(--background-front);
+    color: white;
+
+    font-family: var(--default-font);
+    font-size: x-large;
+    
+}
+
+#delete_button{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-right: 15px;
+    margin-left: 10px ;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: transparent;
+    color: rgb(207, 10, 10);
+
+    font-size: large;
+    text-decoration: underline;
+
+    transition: all 1s;
+
+}
+
+#delete_button:hover , #delete_button:active{
+    background-color: rgb(207, 10, 10);
+    color:white;
+
+    text-decoration: none;
+
+}
+
+/* ---------------------------- */
