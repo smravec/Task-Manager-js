@@ -1,6 +1,35 @@
+//Functions
 // Grabbing the elements from DOM
-const Todo_Element = document.getElementById("todo")
+const Task_Container = document.getElementById("task_container")
 const Form = document.getElementById("main_form")
+
+function create_task(task_value){
+    // Creating all the required elements
+        const Task = document.createElement("div")
+        Task.id = "task"
+    
+    // Value
+        const Input = document.createElement("input")
+        Input.value = task_value
+        Input.id = "task_value"
+        Input.disabled = true
+    
+    // Task delete button
+        const Delete_Button = document.createElement("button")
+        Delete_Button.innerHTML = "Delete"
+        Delete_Button.id = "delete_button"
+    
+    // Assembling the task together + adding it to the screen
+        Task_Container.appendChild(Task)
+        Task.appendChild(Input)
+        Task.appendChild(Delete_Button)
+        localStorage.setItem(Input.value,Input.value)
+    
+    // Adding event listener to delete button
+        Delete_Button.addEventListener("click", () => { Task_Container.removeChild(Task); localStorage.removeItem(Input.value)})
+    }
+
+//On Startup (first load)
 
 //Getting all tasks from local storage
 var values = []
@@ -16,33 +45,6 @@ for(let x = 0; x < keys_length; x = x + 1){values.push( localStorage.getItem(key
 values.forEach(element => {
     create_task(element)
 });
-
-function create_task(task_value){
-    // Creating all the required elements
-        const Task_Div = document.createElement("div")
-        Task_Div.id = "task"
-    
-    // Value
-        const Input = document.createElement("input")
-        Input.value = task_value
-        Input.id = "task_value"
-        Input.disabled = true
-    
-    // Task delete button
-        const Delete_Button = document.createElement("button")
-        Delete_Button.innerHTML = "Delete"
-        Delete_Button.id = "delete_button"
-    
-    // Assembling the task together + adding it to the screen
-        Todo_Element.appendChild(Task_Div)
-        Task_Div.appendChild(Input)
-        Task_Div.appendChild(Delete_Button)
-        localStorage.setItem(Input.value,Input.value)
-    
-    // Adding event listener to delete button
-        Delete_Button.addEventListener("click", () => { Todo_Element.removeChild(Task_Div); localStorage.removeItem(Input.value)})
-        
-    }
 
 Form.addEventListener("submit", (event) => {
 // Prevents from refreshing the page on submit
