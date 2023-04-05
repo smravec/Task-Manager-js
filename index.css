@@ -33,18 +33,16 @@ body{
 #submit_button{
     border:none;
     border-radius: 5px;
-
     background-color: rgb(14, 222, 87);
     color:white;
-
     font-family: var(--default-font);
     font-size: medium;
-
     transition: all 100ms;
 }
 
 #submit_button:hover, #submit_button:active{
     background-color: rgb(12, 170, 67);
+    cursor: pointer;
 }
 
 /* Content */
@@ -52,6 +50,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 74vh;
+    overflow-y: scroll;
 }
 
 #task_container{
@@ -71,27 +71,89 @@ body{
     border: none;
     background-color: transparent;
     color: white;
-
     font-family: var(--default-font);
     font-size: small;
 }
 
 #delete_button{
     border: none;
-
     background-color: transparent;
     color: rgb(207, 10, 10);
-
     font-size: small;
     text-decoration: underline;
-
     transition: all 0.4s;
 }
 
 #delete_button:hover , #delete_button:active{
     background-color: rgb(207, 10, 10);
     color:white;
-
     text-decoration: none;
     border-radius: 2px;
+    cursor: pointer;
+}
+
+/* Modals */
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+
+#modal_wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto; 
+    display: flex; 
+    justify-content: center;
+    z-index: 1000;
+}
+  
+#modal_container {
+    display: flex;
+    justify-content: center;
+}
+  
+#error_modal {
+    background-color: rgb(255, 225, 225);
+    padding: 10px;
+    border-radius: 10px;
+    width: 80vw;
+    max-width: 300px;
+    text-align: center;
+    font-size: small;
+    margin-bottom: 20px;
+    animation: bounce 1s;
+    color: rgb(220, 36, 36);
+    border: 1px solid #bd7777;
+}
+
+/* Desktop */
+@media (min-width: 650px)  {
+    #input{
+        font-size: larger;
+    }
+
+    #task_value{
+        font-size: large;
+    }
+    
+    #delete_button{
+        font-size: medium;
+    }
+
+    #error_modal{
+        max-width: 450px;
+    }
 }
